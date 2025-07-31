@@ -43,12 +43,12 @@ graph TB
     MS -.-> PROXY
     PROXY -.-> OAI
     
-    style UI fill:#e1f5fe
-    style CK fill:#f3e5f5
-    style API fill:#e8f5e8
-    style MS fill:#fff3e0
-    style OAI fill:#ffebee
-    style PROXY fill:#f1f8e9
+    style UI fill:#e3f2fd,stroke:#1976d2,stroke-width:2px,color:#000
+    style CK fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px,color:#000
+    style API fill:#e8f5e8,stroke:#388e3c,stroke-width:2px,color:#000
+    style MS fill:#fff3e0,stroke:#f57c00,stroke-width:2px,color:#000
+    style OAI fill:#ffebee,stroke:#d32f2f,stroke-width:2px,color:#000
+    style PROXY fill:#f1f8e9,stroke:#689f38,stroke-width:2px,color:#000
 ```
 
 ## Getting Started
