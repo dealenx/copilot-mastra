@@ -13,6 +13,44 @@ This is a starter template for building AI agents using [Mastra](https://mastra.
 
 > **Note:** This repository ignores lock files (package-lock.json, yarn.lock, pnpm-lock.yaml, bun.lockb) to avoid conflicts between different package managers. Each developer should generate their own lock file using their preferred package manager. After that, make sure to delete it from the .gitignore.
 
+
+
+## Architecture Overview
+
+The following diagram shows how the different systems interact with each other:
+
+```mermaid
+graph TB
+    subgraph "Client Side"
+        UI["Next.js UI<br/>(React Components)"]
+        CK["CopilotKit<br/>(React Hooks)"]
+    end
+    
+    subgraph "Server Side"
+        API["Next.js API Routes<br/>(/api/copilotkit)"]
+        MS["Mastra Agent Server<br/>(mastra dev)"]
+    end
+    
+    subgraph "AI Services"
+        OAI["OpenAI API<br/>(or compatible)"]
+        PROXY["Proxy Service<br/>(Optional)"]
+    end
+    
+    UI --> CK
+    CK --> API
+    API --> MS
+    MS --> OAI
+    MS -.-> PROXY
+    PROXY -.-> OAI
+    
+    style UI fill:#e1f5fe
+    style CK fill:#f3e5f5
+    style API fill:#e8f5e8
+    style MS fill:#fff3e0
+    style OAI fill:#ffebee
+    style PROXY fill:#f1f8e9
+```
+
 ## Getting Started
 
 1. Add your OpenAI API key
@@ -22,6 +60,22 @@ echo "OPENAI_API_KEY=your-key-here" >> .env
 ```
 
    If you are using a different API endpoint (for example, a local server or an alternative provider), also add the `OPENAI_BASE_URL` variable.
+
+   **Using a Proxy Service:**
+   
+   If you need to use a proxy service to access OpenAI (for example, due to regional restrictions or corporate firewalls), you can configure it like this:
+   
+   ```bash
+   # Example with a proxy service
+   echo "OPENAI_API_KEY=your-key-here" >> .env
+   echo "OPENAI_BASE_URL=https://your-proxy-service.com/v1" >> .env
+   ```
+   
+   Popular proxy services include:
+   - **OpenAI Proxy**: Self-hosted solutions like `openai-proxy`
+   - **Azure OpenAI**: `https://your-resource.openai.azure.com/`
+   - **Local AI servers**: Like `ollama`, `localai`, or `text-generation-webui`
+   - **Corporate proxies**: Internal company endpoints
 
 
 2. Install dependencies using your preferred package manager:
