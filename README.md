@@ -54,11 +54,30 @@ yarn dev
 bun run dev
 ```
 
-This will start both the UI and agent servers concurrently.
+
+
+
+
+This will start the UI server. For full functionality, you also need to start the Mastra agent server in a separate terminal:
+
+```bash
+# Using pnpm
+pnpm dev:agent
+
+# Using npm
+npm run dev:agent
+
+# Using yarn
+yarn dev:agent
+
+# Using bun
+bun run dev:agent
+```
 
 ## Available Scripts
 The following scripts can also be run using your preferred package manager:
-- `dev` - Starts both UI and agent servers in development mode
+- `dev` - Starts the UI server in development mode
+- `dev:agent` - Starts the Mastra agent server
 - `dev:debug` - Starts development servers with debug logging enabled
 - `build` - Builds the application for production
 - `start` - Starts the production server
