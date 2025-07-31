@@ -21,6 +21,9 @@ This is a starter template for building AI agents using [Mastra](https://mastra.
 echo "OPENAI_API_KEY=your-key-here" >> .env
 ```
 
+   If you are using a different API endpoint (for example, a local server or an alternative provider), also add the `OPENAI_BASE_URL` variable.
+
+
 2. Install dependencies using your preferred package manager:
 ```bash
 # Using pnpm (recommended)
