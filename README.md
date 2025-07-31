@@ -20,7 +20,7 @@ This is a starter template for building AI agents using [Mastra](https://mastra.
 The following diagram shows how the different systems interact with each other:
 
 ```mermaid
-graph TB
+graph LR
     subgraph "Client Side"
         UI["Next.js UI<br/>(React Components)"]
         CK["CopilotKit<br/>(React Hooks)"]
